@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Courses Info {% endblock %}
+
+
+{% block body %}
+
+
+
+  <br>
+  <h3>Courses Schedule</h3>
+
+
+
+<div class="input-group">
+
+<select onchange="sort_courses(this.value);">
+  <option value="" selected disabled>Courses</option>
+  <option value="ascending">Ascending</option>
+  <option value="descending">Descending</option>
+</select>
+
+<select onchange="sort_start_date(this.value);">
+  <option value="" selected disabled>Start Date</option>
+  <option value="descending">Latest</option>
+  <option value="ascending">Oldest</option>
+</select>
+
+<input type="text" id="location" size="50" placeholder="Location...">
+<button class="btn btn-outline-primary" onClick="find_location();" type="button">Search</button>
+
+</div>
+
+
+<table class="table" id="schTbl">
+  <thead class="thead-dark">
+    <tr>
+      <th>Course Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in all_courses %}
+      <tr>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.start_date }}</td>
+        <td>{{ course.end_date }}</td>
+        <td>{{ course.location }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% load static %}
+<script type="text/javascript" src="{% static 'course.js' %}"></script>
+
+
+{% endblock %}
