@@ -1,5 +1,5 @@
 # Introduction
-This project is to design a webpage to display courses records from database through REST API.  The courses display offers sorting and search feature using javascript.
+This project is to design a webpage to display courses records from database through REST API.  The courses display offers sorting and search feature.
 
 <br>
 
